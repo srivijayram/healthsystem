@@ -1,0 +1,62 @@
+create table student(
+    sno number(10),
+    name varchar2(20),
+    dept varchar2(20)
+)
+
+insert into student values(1,'anu','MCA')
+
+insert into student values(2,'binu','MCA')
+
+insert into student (name) values('anu')
+
+select * from student
+
+alter table student modify ( sno NOT NULL);
+
+create table student1(
+    sno number(10) not null,
+    name varchar2(20),
+    dept varchar2(20)
+)
+
+insert into student1 values(1,'anu','MCA')
+
+insert into student1 values(2,'binu','MCA')
+
+insert into student1 values(2,'binu','MCA')
+
+insert into student1 (name) values('anu')
+
+create table student2(
+    sno number(10) not null unique,
+    name varchar2(20),
+    dept varchar2(20)
+)
+
+insert into student2 values(1,'anu','MCA')
+
+insert into student2 values(2,'binu','MCA')
+
+insert into student2 values(2,'binu','MCA')
+
+insert into student2 (name) values('anu')
+
+create table student3(
+    sno number(10) not null ,
+    name varchar2(20),
+    dept varchar2(20),
+    primary key(sno)
+)
+
+insert into student3 values(1,'anu','MCA')
+
+insert into student3 values(1,'anu','MCA')
+
+insert into student3 values(2,'anu','MCA')
+
+insert into student3 values(3,'binu','MCA')
+
+insert into student2 (name,dept) values('binu','MCA')
+
+commit

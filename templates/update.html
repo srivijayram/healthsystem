@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/update/" method="post">
+        {% csrf_token %}
+        {% for i in mydata %}
+            name:<input type="text" name="name" value="{{i.name}}">
+            email:<input type="email" name="email" value="{{i.email}}">
+            password:<input type="password" name="password" value="{{i.passord}}">
+        {% endfor %}
+        <center><button type="submit" class="btn btn-primary"><B>Update</B></button></center>
+    </form>
+</body>
+</html>

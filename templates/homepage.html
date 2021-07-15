@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>E-Health</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+          rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "App1/homepage.css" %}">
+    <script src="{% static "App1/Messagealert.js" %}"></script>
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+        <h1 class="logo mr-auto"><a href="index.html">E-Health system</a></h1>
+        <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <li class="active"><a href="#hero">Home</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="/ulogin">Patient</a></li>
+                <li><a href="/dlogin">Doctor</a></li>
+                 <li><a href="http://vijay033.pythonanywhere.com/login/">Consult</a></li>
+            </ul>
+        </nav><!-- .nav-menu -->
+    </div>
+</header><!-- End Header -->
+
+<!-- =======  Section ======= -->
+<section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 pt-5 pt-lg-0 order-4 order-lg-1 d-flex flex-column justify-content-center">
+                <h1>Health care system</h1>
+                <h2>A Two-way Communication Bus Architecture for the e-Health System to provide better privacy and
+                    security </h2>
+                <div class="d-flex">
+                    <a href="/ulogin" class="btn-get-started scrollto">Patient</a>&emsp;
+                    <a href="/dlogin" class="btn-get-started scrollto">Doctor</a>
+                </div>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-0 hero-img">
+                {% load static %}<img src={% static "App1/media/dp.jpg " %} alt=""
+                                      class="img-fluid mb-4 d-none d-md-block">
+            </div>
+        </div>
+    </div>
+
+</section><!-- End  -->
+
+<section id="contact" class="contact">
+    <div class="container">
+
+        <div class="section-title">
+            <span>Contact</span>
+            <h2>Contact</h2>
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-5 d-flex align-items-stretch">
+                <div class="info">
+                    <div class="address">
+                        <i class='bx bx-current-location'></i>
+                        <h4>Location:</h4>
+                        <p>PSG college of technology</p>
+                    </div>
+
+                    <div class="email">
+                        <i class='bx bxs-envelope'></i>
+                        <h4>Email:</h4>
+                        <p>ehealth@example.com</p>
+                    </div>
+
+                    <div class="phone">
+                        <i class='bx bxs-phone'></i>
+                        <h4>Call:</h4>
+                        <p>+1 123 234 2345</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+                <form action="/submitmessage/" method="post" role="form" class="php-email-form">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="name">Your Name</label>
+                            <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4"
+                                   data-msg="Please enter at least 4 chars"/>
+                            <div class="validate"></div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="name">Your Email</label>
+                            <input type="email" class="form-control" name="email" id="email" data-rule="email"
+                                   data-msg="Please enter a valid email" required/>
+                            <div class="validate"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Subject</label>
+                        <input type="text" class="form-control" name="subject" id="subject" data-rule="minlen:4"
+                               data-msg="Please enter at least 8 chars of subject"/>
+                        <div class="validate"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Message</label>
+                        <textarea class="form-control" name="text" rows="10" data-rule="required"
+                                  data-msg="Please write something for us" required></textarea>
+                        <div class="validate"></div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" onsubmit="sent()">Send Message</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+
+    <div class="footer-top">
+
+        <div class="container">
+
+            <div class="row  justify-content-center">
+                <div class="col-lg-6">
+                    <h3>E-health</h3>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="https://www.instagram.com/chandeesheey/" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container footer-bottom clearfix">
+        <div class="copyright">
+            &copy; Copyright <strong><span>E-health</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+            Designed by <a href="#">Chan & Vijay</a>
+        </div>
+    </div>
+</footer><!-- End Footer -->
+
+</body>
+</html>

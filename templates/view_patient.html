@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Patients</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static "App1/profile.css" %}">
+    {% load static %}
+    <link rel="stylesheet" href="{% static "App1/profileindex.css" %}">
+</head>
+
+<body>
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+        <h1 class="logo mr-auto"><a href="">Welcome Doctor</a></h1>
+        <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <li><a href="/docProfile">Profile</a></li>
+                <li class="active"><a href="PatientView.html">Patients</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav><!-- .nav-menu -->
+    </div>
+</header>
+<br><br><br><br><br><!-- End Header -->
+
+<div class="container">
+    <div class="main-body">
+
+        <div class="col-md-12">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h4 class="mb-0">Name</h4>
+                        </div>
+                        <div class="col-sm-3">
+                            <h4 class="mb-0">Email</h4>
+                        </div>
+                        <div class="col-sm-3 ">
+                            <h4 class="mb-0">Medical Report</h4>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- Patient files view -->
+                    <table class="row">
+                        {% csrf_token %}
+                        {% for i in userdata %}
+                            <tr>
+                                <td class="col-sm-3">
+                                    <h6 class="mb-0">{{ i.sender }}&emsp;&emsp;&emsp;&emsp;</h6>
+                                </td>
+                                <td class="col-sm-3 ">
+                                    <h6 class="mb-0">{{ i.file }}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</h6>
+                                </td>
+                                <td class="col-sm-2 ">
+                                    <a href="/media/{{ i.file }}"
+                                       class="btn btn-block login-btn" download>Download</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        <br>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+</div>
+{% load static %}
+<img src={% static "App1/media/bgdown1.png" %} style="width: 100%">
+</body>
+
+</body>
+</html>
+
+<!--<button class="btn btn-block login-btn"><i class="fa fa-download"></i> Download</button> -->

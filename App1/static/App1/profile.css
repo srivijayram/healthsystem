@@ -1,0 +1,85 @@
+body{
+    margin-top:20px;
+    color: #1a202c;
+    text-align: left;
+    background-color: white;    
+    font-family: "Karla", sans-serif;
+}
+.main-body {
+    padding: 15px;
+}
+.card {
+    box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+}
+
+.gutters-sm {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+
+.gutters-sm>.col, .gutters-sm>[class*=col-] {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+.mb-3, .my-3 {
+    margin-bottom: 1rem!important;
+}
+
+.bg-gray-300 {
+    background-color: #e2e8f0;
+}
+.h-100 {
+    height: 100%!important;
+}
+.shadow-none {
+    box-shadow: none!important;
+}
+
+.me-2 {
+    margin-right: .5rem!important;
+}
+
+.login-btn {
+    padding: 6px 10px 6px;
+    background-color: #000;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #fff;
+    margin-bottom: 24px; }
+
+.login-btn:hover {
+      border: 1px solid #000;
+      background-color: transparent;
+      color: #000; }
+
+.div1{
+    position:absolute;
+    right:50px;
+    top:155px;
+    width:600px;
+}
+
+#header {
+    background: url("D:\College\EAD\healthsystem\App1\static\App1\med.jpg");
+ }
+  
+  

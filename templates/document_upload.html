@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static "App1/profile.css" %}">
+    {% load static %}
+    <link rel="stylesheet" href="{% static "App1/profileindex.css" %}">
+</head>
+
+<body style="background-image: url('medd.png');
+background-repeat:no-repeat ;
+width: 100%;">
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+        <h1 class="logo mr-auto"><a href="">Welcome User</a></h1>
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <li><a href="/userProfile">Profile</a></li>
+                <li class="active"><a href="/uploaddocument">Document</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav><!-- .nav-menu -->
+    </div>
+</header>
+<br><br><br><br><br><!-- End Header -->
+
+<div class="container">
+    <div class="main-body">
+
+        <div class="col-lg-7">
+            <form class="card" method="post" action="/upload/" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="card-body">
+                    <h2>Send Document</h2>
+                    <hr>
+                    <br>
+
+                    <div class="row mb-3">
+
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Doctor Name:</h6>
+                        </div>
+                        <div class="col-sm-8 text-secondary">
+
+                            <select name="doctors" class="custom-select mb-3">
+                                <option selected>Select Doctor</option>
+                                {% for i in userdata %}
+                                    <option value="{{ i.email }}">{{ i.name }}</option>
+                                {% endfor %}
+                            </select>
+
+                        </div>
+
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Choose Document :</h6>
+                        </div>
+                        <div class="col-sm-8 text-secondary">
+                            <!--File upload -->
+                            <div class="custom-file mb-3">
+                                <input type="file" class="custom-file-input" id="filename" name="filename" required/>
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3 "></div>
+                        <div class="col-sm-5 text-secondary">
+                            <input type="submit" class="btn btn-block login-btn" value="Send Document"/>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+<br><br>
+
+<center>{% for message in messages %}
+
+                    <div class="alert alert-success" style="width:500px;box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43);">
+                        <b>{{ message }}</b>
+                    </div>
+            {% endfor %}
+</center>
+
+    <!--Document  Status
+    <div class="div1">
+        <div class="col-lg-9">
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="row mb-3">
+                        <div class="col-sm-5">
+                            <h4 class="mb-0">Documents </h4>
+                        </div>
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-5">
+                            <h4 class="mb-0">Status </h4>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-5">
+                            <h6 class="mb-0">File </h6>
+                        </div>
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-5">
+                            <h6 class="mb-0">received </h6>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+
+</div>
+</div>
+<div style="position:absolute;top:155px;left:980px;">{% load static %}
+<img src={% static "App1/media/a.gif" %} style="width:70%"></div>
+
+
+<script>
+    $(".custom-file-input").on("change", function () {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+</script>
+
+
+</body>
+</html>
